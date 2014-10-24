@@ -62,6 +62,7 @@ bot.on_message do |message, info|
 
     response += greeting_prompt()
     response += "\n\n#{metrics[i].name}"
+    response += " #{info.to_s}"
 
   elsif (listening && i != metrics.size)
 
