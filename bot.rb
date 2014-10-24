@@ -41,7 +41,6 @@ bot.on_message do |message, info|
     next # don't process the next lines in this block
   end
 
-  bot.direct_message(info[:user], "Hello, @#{info[:user]}!")
   response = ""
 
   #initiate new preorder plot
