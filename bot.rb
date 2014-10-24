@@ -36,12 +36,8 @@ end
 
 # Do this thing in this block each time the bot hears a message:
 bot.on_message do |message, info|
-  return nil if info[:user] == 'slackbot' || (message.start_with?('hello, preorderbot') && listening)
-
   # ignore all messages not directed to this bot
-  unless ()
-    return # don't process the next lines in this block
-  end
+  return nil if info[:user] == 'slackbot' || (message.start_with?('hello, preorderbot') && listening)
 
   response = ""
 
