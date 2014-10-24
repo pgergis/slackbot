@@ -36,6 +36,11 @@ end
 
 # Do this thing in this block each time the bot hears a message:
 bot.on_message do |message, info|
+
+  if info.username == 'preorderbot'
+    next
+  end
+  
   # ignore all messages not directed to this bot
   unless (message.start_with?('hello, preorderbot') || listening)
     next # don't process the next lines in this block
@@ -62,7 +67,6 @@ bot.on_message do |message, info|
 
     response += greeting_prompt()
     response += "\n\n#{metrics[i].name}"
-    response += " #{info.to_s}"
 
   elsif (listening && i != metrics.size)
 
@@ -85,6 +89,8 @@ bot.on_message do |message, info|
 
     if (i != metrics.size)
       response += "\n\n#{metrics[i].name}"
+      response += " #{info.to_s}"
+
     else
       response = "What's the expected preorder volume?"
     end
