@@ -37,14 +37,15 @@ end
 # Do this thing in this block each time the bot hears a message:
 bot.on_message do |message, info|
   # ignore all messages not directed to this bot
-  unless (message.start_with?('preorderbot') || listening)
+  unless (message.start_with?('hello, preorderbot') || listening)
     next # don't process the next lines in this block
   end
 
+  bot.direct_message(info[:user], "Hello, @#{info[:user]}!")
   response = ""
 
   #initiate new preorder plot
-  if (message.start_with?('preorderbot') && !listening)
+  if (message.start_with?('hello, preorderbot') && !listening)
     listening = true
 
     # Set up preorder metrics:
@@ -94,7 +95,6 @@ bot.on_message do |message, info|
     listening = false
     i = 0
     score = 0.0
-    binding.pry
     metrics.each do |m| 
       score = score + (m.value * m.weight)
     end
