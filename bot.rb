@@ -36,11 +36,11 @@ end
 
 # Do this thing in this block each time the bot hears a message:
 bot.on_message do |message, info|
-  return nil if info[:user] == 'slackbot'
+  return nil if info[:user] == 'slackbot' || (message.start_with?('hello, preorderbot') && listening)
 
   # ignore all messages not directed to this bot
-  unless (message.start_with?('hello, preorderbot') || listening)
-    next # don't process the next lines in this block
+  unless ()
+    return # don't process the next lines in this block
   end
 
   response = ""
@@ -86,7 +86,6 @@ bot.on_message do |message, info|
 
     if (i != metrics.size)
       response += "\n\n#{metrics[i].name}"
-      response += " #{info.to_s}"
 
     else
       response = "What's the expected preorder volume?"
