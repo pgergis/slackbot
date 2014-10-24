@@ -25,7 +25,7 @@ metrics = []
 i = 0
 
 def greeting_prompt()
-  "\e[H\e[2J\nType h for help on any metric, q to quit, b to go back, and s to start over.
+  "Type h for help on any metric, q to quit, b to go back, and s to start over.
   Enter your evaluation, on an integer scale of 1 to 10"
 end
 
